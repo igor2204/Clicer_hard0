@@ -7,12 +7,35 @@
     android:background="@drawable/octagon"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Таймер"
+        android:textColor="#FF2D26"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/textTimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uslovie"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/uslovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Бей, иначе проиграешь"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-1dp" />
 
     <Button
         android:id="@+id/buttonclick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Кликни, чтобы начать игру"
+        android:text="         Удар        "
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,17 +46,19 @@
         android:id="@+id/textTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="#FF2D26"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonclick"
         app:layout_constraintEnd_toEndOf="@+id/buttonclick"
         app:layout_constraintStart_toStartOf="@+id/buttonclick"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textSize="50sp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/number"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor = "#FF2D26"
         app:layout_constraintBottom_toTopOf="@+id/buttonclick"
         app:layout_constraintEnd_toEndOf="@+id/buttonclick"
         app:layout_constraintStart_toStartOf="@+id/buttonclick"

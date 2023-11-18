@@ -17,14 +17,18 @@ public class ResultActivity extends AppCompatActivity {
 
 
         // Получение результата из предыдущей активности
-        String result = getIntent().getStringExtra("result");
+        String result = getIntent().getStringExtra(MainActivity.KEY_RESULT);
 
         // Отображение результата на экране
         TextView resultTextView = findViewById(R.id.resultTextView);
+
+
+
+
         resultTextView.setText(result);
 
-        MediaPlayer play= MediaPlayer.create(ResultActivity.this,R.raw.wictory);
-        play.start();
+
+
         }
 }
 

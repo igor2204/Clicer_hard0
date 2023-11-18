@@ -15,10 +15,12 @@ public class MainActivity extends AppCompatActivity {
     private int score = 0;
     private int targetScore = 100;
     private boolean gameEnded = false;
+    final static String KEY_RESULT = "result";
 
     private TextView textTime;
 
     private TextView numberText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,20 +34,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (!gameEnded) {
-                    score += 10;  // Увеличить количество очков при нажатии кнопки
+                    score += 5;  // Увеличить количество очков при нажатии кнопки
                     if (score >= targetScore) {
                         endGameWithMessage("Победа");
+                        MediaPlayer play= MediaPlayer.create(MainActivity.this,R.raw.wictory);
+                        play.start();
                     }
                 }
                 TextView numberText = findViewById(R.id.number);
-                numberText.setText("" + score);
+                numberText.setText("Количество очков: " + score);
                 MediaPlayer play= MediaPlayer.create(MainActivity.this,R.raw.punch);
                 play.start();
             }
         });
 
 
-        new CountDownTimer(60000, 1000) {
+        new CountDownTimer(30000, 1000) {
             public void onTick(long l) {
                 textTime.setText(""+l/1000);
 
@@ -54,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 if (score < targetScore) {
                     endGameWithMessage("Поражение");
-
+                    MediaPlayer play= MediaPlayer.create(MainActivity.this,R.raw.lose);
+                    play.start();
 
                 }
             }
@@ -66,7 +71,22 @@ public class MainActivity extends AppCompatActivity {
         gameEnded = true;
         // Отправка сообщения о результате игры
         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-        intent.putExtra("result", message);
+        intent.putExtra(KEY_RESULT, message);
         startActivity(intent);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
